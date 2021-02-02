@@ -14,17 +14,28 @@ public class Main {
 
         String shortest = compareLength(series);
         System.out.println(shortest);
+
     }
 
     public static String compareLength(List<String> series){
 
         String result = "";
+        int currentLength = 0;
+        int index = 1;
 
         for (String serie : series){
-            // Jämför Strings och spara Undan
-            result = serie;
+            if (index == 1){
+                currentLength = serie.length();
+            index = 2;
+            }
+
+            if (serie.length() < currentLength) {
+                currentLength = serie.length();
+                result = serie;
+            }
         }
 
         return result;
     }
+
 }
